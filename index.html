@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Angular Demo</title>
+    <script src="lib/angular/angular.min.js"></script>
+    <script src="js/controllers.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
+</head>
+<body>
+
+<div class="main container container-fluid" ng-controller="MyController">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <h2>Problem A</h2>
+            <div class="table-holder">
+                <table class="table table-bordered table-hover table-condensed table-responsive">
+                    <thead>
+                    <tr ng-show="records">
+                        <th>Time</th>
+                        <th>Word Count</th>
+                        <th>Words Per Minute</th>
+                        <th>Top Frequent Word</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <!--<div class="no-items"></div>-->
+                    <tr ng-repeat="(key,record) in records">
+                        <td> {{key}}</td>
+                        <td> {{record.wc}}</td>
+                        <td> {{record.wpm}}</td>
+                        <td> {{record.tfw}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="form-group">
+                <label for="text">{{timer_value}}</label>
+                <label for="text">{{wpm_timer_value}}</label>
+                <div class="textarea form-control" ng-model="usertext" id="text" contenteditable
+                     data-text="Begin typing here..."
+                     ng-change="change()"></div>
+            </div>
+
+            <div class="footer">
+                <span class="btn-group">
+                    <button type="button" class="btn btn-fixed">Share</button>
+                    <button type="button" class="btn disabled btn-fixed"> &nbsp;  </button>
+                </span>
+                <span class="btn-group float-right">
+                    <input class="btn btn-outline-secondary btn-fixed">  </input>
+                    <button type="button" class="btn btn-fixed">Load</button>
+                </span>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
